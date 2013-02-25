@@ -5,7 +5,7 @@ require 'wormwood'
 
 program :name, 'wormwood'
 program :version, Wormwood::VERSION
-program :description, 'A static file renderer inspired by jekyll.'
+program :description, 'Wormwood is an event-driven file rendering utility inspired by Jekyll.'
 
 default_command :watch
 
