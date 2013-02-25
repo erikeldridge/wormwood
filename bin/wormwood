@@ -9,10 +9,16 @@ program :description, 'Wormwood is an event-driven file rendering utility inspir
 
 default_command :watch
 
+global_option '-s', '--source [DIR]', 'Watches specified directory path (defaults to ./)'
+global_option '-d', '--destination [DIR]', 'Writes to specified directory path (defaults to ./public)'
+
 command :watch do |c|
-  c.syntax = 'wormwood'
-  c.description = 'Watches for changes in "raw" dir, and renders the changed files into "public".'
-  c.action do
-    Wormwood.watch
+  c.syntax = 'wormwood [options]'
+  c.description = 'Watches source directory for changes, and writes rendered changes to the destination directory.'
+  c.action do |args, options|
+    options.default \
+      :source => './',
+      :destination  => './public'
+    Wormwood.watch(options)
   end
 end
