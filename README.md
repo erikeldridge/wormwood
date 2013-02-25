@@ -1,6 +1,8 @@
 # Wormwood
 
-TODO: Write a gem description
+Wormwood is a static file renderer inspired by [jekyll](https://github.com/mojombo/jekyll).
+
+Wormwood watches for changes to a directory named _raw_, renders the changed files (via [Tilt](https://github.com/rtomayko/tilt)), and writes the rendered output into a directory named _public_.
 
 ## Installation
 
@@ -18,7 +20,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Create a _raw_ directory
+2. Create a _public_ directory
+3. Run `wormwood`
+4. Edit files in _raw_ and observe the changes rendered in _public_
+
 
 ## Contributing
 
