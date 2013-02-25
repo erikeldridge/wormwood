@@ -9,9 +9,9 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Erik Eldridge"]
   gem.email         = "contact@erikeldridge.com"
   gem.description   = "Wormwood is an event-driven file rendering utility inspired by Jekyll."
-  gem.summary       = "Wormwood watches for changes to a template directory (\"raw\" by default), "+
+  gem.summary       = "Wormwood watches for changes to a template directory (\"./\" by default), "+
                       "renders the changed files (via Tilt), and writes the rendered output to "+
-                      "an output directory (\"public\" by default)."
+                      "an output directory (\"./\" by default)."
   gem.homepage      = "http://github.com/erikeldridge/wormwood"
 
   gem.files         = `git ls-files`.split($/)

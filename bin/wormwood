@@ -10,7 +10,7 @@ program :description, 'Wormwood is an event-driven file rendering utility inspir
 default_command :watch
 
 global_option '-s', '--source [DIR]', 'Watches specified directory path (defaults to ./)'
-global_option '-d', '--destination [DIR]', 'Writes to specified directory path (defaults to ./public)'
+global_option '-d', '--destination [DIR]', 'Writes to specified directory path (defaults to ./)'
 
 command :watch do |c|
   c.syntax = 'wormwood [options]'
@@ -18,7 +18,7 @@ command :watch do |c|
   c.action do |args, options|
     options.default \
       :source => './',
-      :destination  => './public'
+      :destination  => './'
     Wormwood.watch(options)
   end
 end
