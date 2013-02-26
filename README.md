@@ -16,7 +16,7 @@ Wormwood watches for changes to a template directory ( _./_ by default), renders
 
 You can specify _source_ and _destination_ directories as options. For example:
 
-    wormwood -s templates -d public/blog
+    wormwood -s templates -d public
 
 
 ## Installation

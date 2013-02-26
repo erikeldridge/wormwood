@@ -5,12 +5,12 @@ require 'fileutils'
 require 'tilt'
 
 module Wormwood
+  GLOB = '**/*.{erb,rhtml,markdown,mkd,md}'
 
   # ref: https://github.com/mojombo/jekyll/blob/master/lib/jekyll/commands/build.rb
   # ref: https://github.com/TwP/directory_watcher/blob/master/lib/directory_watcher.rb
   def self.watch(options)
-    FileUtils.mkdir_p(options.destination) unless File.exists? options.destination
-    dw = DirectoryWatcher.new(options.source)
+    dw = DirectoryWatcher.new(options.source, :glob => GLOB, :pre_load => true)
     dw.interval = 1
     dw.add_observer do |*events|
       build events.collect{|e| e.path}, options
@@ -22,13 +22,11 @@ module Wormwood
 
   def self.build paths, options
     paths.each do |source_path|
-      begin
-        dest_path = "#{options.destination}/#{File.basename(source_path, ".*")}.html"
-        File.write dest_path, Tilt.new(source_path).render
-        puts "Wormwood success: rendered #{source_path} → #{dest_path}."
-      rescue RuntimeError => e
-        warn "Wormwood error: (#{e.message})."
-      end
+      dest_path = File.dirname(source_path).sub(options.source, options.destination)
+      FileUtils.mkdir_p(dest_path) unless File.exists? dest_path
+      File.write \
+        "#{dest_path}/#{File.basename(source_path, ".*")}.html",
+        Tilt.new(source_path).render
     end
   end
 
