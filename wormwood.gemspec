@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.version       = Wormwood::VERSION
   gem.authors       = ["Erik Eldridge"]
   gem.email         = "contact@erikeldridge.com"
-  gem.description   = "Wormwood is an event-driven file rendering utility inspired by Jekyll."
+  gem.description   = "Event-driven template rendering inspired by Jekyll"
   gem.summary       = "Wormwood watches for changes to a template directory (\"./\" by default), "+
                       "renders the changed files (via Tilt), and writes the rendered output to "+
                       "an output directory (\"./\" by default)."
