@@ -13,12 +13,23 @@ global_option '-s', '--source [DIR]', 'Watches specified directory path (default
 global_option '-d', '--destination [DIR]', 'Writes to specified directory path (defaults to ./)'
 
 command :watch do |c|
-  c.syntax = 'wormwood [options]'
-  c.description = 'Watches source directory for changes, and writes rendered changes to the destination directory.'
+  c.syntax = 'wormwood watch [options]'
+  c.description = 'Watches source directory and renders any files that change'
   c.action do |args, options|
     options.default \
       :source => './',
       :destination  => './'
     Wormwood.watch(options)
+  end
+end
+
+command :build do |c|
+  c.syntax = 'wormwood build [options]'
+  c.description = 'Renders all templates in source directory'
+  c.action do |args, options|
+    options.default \
+      :source => './',
+      :destination  => './'
+    Wormwood.build(Dir[Wormwood::GLOB], options)
   end
 end
