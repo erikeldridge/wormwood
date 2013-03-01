@@ -3,6 +3,7 @@
 Wormwood is an event-driven file rendering utility inspired by [Jekyll](https://github.com/mojombo/jekyll).
 
 Wormwood:
+
 1. watches for changes to a template directory ( _./_ by default)
 2. renders the changed files (via [Tilt](https://github.com/rtomayko/tilt))
 3. writes the rendered output to an output directory ( _./_ by default).
@@ -24,9 +25,9 @@ You can specify _source_ and _destination_ directories as options. For example:
 
 Other options:
 
-`--layout` specifies the layout file name (without the extension), e.g., `wormwood --layout default`. Defaults to "layout".
+`--layout` The layout file name (without extension), e.g., `wormwood --layout default`. Defaults to "layout".
 
-`--variable` specifies the variable name used to insert the rendered content into the layout, e.g., `wormwood --variable yield`. Defaults to "content".
+`--variable` The name of the variable used to insert rendered content into the layout, e.g., `wormwood --variable yield`. Defaults to "content".
 
 
 ## Installation
