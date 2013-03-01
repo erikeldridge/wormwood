@@ -2,14 +2,18 @@
 
 Wormwood is an event-driven file rendering utility inspired by [Jekyll](https://github.com/mojombo/jekyll).
 
-Wormwood watches for changes to a template directory ( _./_ by default), renders the changed files (via [Tilt](https://github.com/rtomayko/tilt)), and writes the rendered output to an output directory ( _public_ by default).
-
+Wormwood:
+1. watches for changes to a template directory ( _./_ by default)
+2. renders the changed files (via [Tilt](https://github.com/rtomayko/tilt))
+3. writes the rendered output to an output directory ( _./_ by default).
 
 ## Usage
 
-1. Create a file [Tilt](https://github.com/rtomayko/tilt)) knows how to render, e.g., _foo.erb_
-2. Run `wormwood`
-3. Edit _foo.erb_ and observe changes applied to _foo.html_
+1. Create a file [Tilt](https://github.com/rtomayko/tilt) knows how to render, e.g., _foo.erb_
+2. Create a file named "layout" in the same directory, with a Tilt-supported extension, e.g., _layout.erb_
+3. Reference _content_ in the layout, e.g., `<%= content %>`
+4. Run `wormwood`
+5. Edit _foo.erb_ and observe changes applied to _foo.html_
 
 
 ## Configuration
@@ -17,6 +21,12 @@ Wormwood watches for changes to a template directory ( _./_ by default), renders
 You can specify _source_ and _destination_ directories as options. For example:
 
     wormwood -s templates -d public
+
+Other options:
+
+`--layout` specifies the layout file name (without the extension), e.g., `wormwood --layout default`. Defaults to "layout".
+
+`--variable` specifies the variable name used to insert the rendered content into the layout, e.g., `wormwood --variable yield`. Defaults to "content".
 
 
 ## Installation

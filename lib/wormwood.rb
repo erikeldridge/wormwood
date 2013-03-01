@@ -21,12 +21,14 @@ module Wormwood
   end
 
   def self.build paths, options
+    layout_path = Dir.glob(File.join(options.source, "#{options.layout}*")).first
     paths.each do |source_path|
-      dest_path = File.dirname(source_path).sub(options.source, options.destination)
-      FileUtils.mkdir_p(dest_path) unless File.exists? dest_path
+      dest_path = File.join \
+        options.destination,
+        "#{File.basename(source_path, ".*")}.html"
       File.write \
-        "#{dest_path}/#{File.basename(source_path, ".*")}.html",
-        Tilt.new(source_path).render
+        dest_path,
+        Tilt.new(layout_path).render(nil, {options.variable => Tilt.new(source_path).render})
     end
   end
 

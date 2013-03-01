@@ -7,7 +7,8 @@ require_relative '../lib/wormwood.rb'
 def create_source
   unless File.exists? source_dir
     FileUtils.mkdir_p(source_dir)
-    File.write(source_dir('foo.erb'), "content")
+    File.write(source_dir('layout.erb'), "<%= content %>")
+    File.write(source_dir('foo.erb'), "asd")
   end
 end
 
