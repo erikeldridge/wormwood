@@ -20,7 +20,7 @@ Wormwood:
 
 You can specify _source_ and _destination_ directories as options. For example:
 
-    wormwood -s templates -d public
+    wormwood --source templates --destination public
 
 Other options:
 
