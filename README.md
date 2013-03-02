@@ -19,15 +19,15 @@ Wormwood:
 
 ## Configuration
 
-You can specify _source_ and _destination_ directories as options. For example:
+Wormwood defines a few configuration options:
 
-    wormwood --source templates --destination public
+`--source` The directory containing the template and layout files. Defaults to "./"
 
-Other options:
+`--destination` The directory to write rendered files to. Defaults to "./"
 
-`--layout` The layout file name (without extension), e.g., `wormwood --layout default`. Defaults to "layout".
+`--layout` The layout file name (without extension). Defaults to "layout".
 
-`--variable` The name of the variable used to insert rendered content into the layout, e.g., `wormwood --variable yield`. Defaults to "content".
+`--variable` The name of the variable used to insert rendered content into the layout. Defaults to "content".
 
 
 ## Installation
@@ -44,6 +44,10 @@ Or install it yourself as:
 
     $ gem install wormwood
 
+
+## Changelog
+
+0.0.6 adds layout support
 
 ## Contributing
 
