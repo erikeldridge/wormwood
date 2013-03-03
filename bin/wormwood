@@ -11,18 +11,14 @@ default_command :watch
 
 global_option '--source [DIR]', 'Watches specified directory path (defaults to "./")'
 global_option '--destination [DIR]', 'Writes to specified directory path (defaults to "./")'
-global_option '--layout [NAME]', 'The layout file name (defaults to "layout")'
+global_option '--layout [NAME]', 'The layout name (defaults to "layout")'
 global_option '--variable [NAME]', 'The layout variable name (defaults to "content")'
 
 command :watch do |c|
   c.syntax = 'wormwood watch [options]'
   c.description = 'Watches source directory and renders any files that change'
   c.action do |args, options|
-    options.default \
-      :source => './',
-      :destination  => './',
-      :layout => 'layout',
-      :variable => 'content'
+    options.default Wormwood::DEFAULTS
     Wormwood.watch(options)
   end
 end
@@ -31,11 +27,7 @@ command :build do |c|
   c.syntax = 'wormwood build [options]'
   c.description = 'Renders all templates in source directory'
   c.action do |args, options|
-    options.default \
-      :source => './',
-      :destination  => './',
-      :layout => 'layout',
-      :variable => 'content'
+    options.default Wormwood::DEFAULTS
     Wormwood.build(Dir[Wormwood::GLOB], options)
   end
 end

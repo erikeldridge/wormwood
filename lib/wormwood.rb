@@ -6,6 +6,11 @@ require 'tilt'
 
 module Wormwood
   GLOB = '**/*.{erb,rhtml,markdown,mkd,md}'
+  DEFAULTS = \
+    :source => '.',
+    :destination  => '.',
+    :layout => 'layout',
+    :variable => 'content'
 
   # ref: https://github.com/mojombo/jekyll/blob/master/lib/jekyll/commands/build.rb
   # ref: https://github.com/TwP/directory_watcher/blob/master/lib/directory_watcher.rb
