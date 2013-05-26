@@ -1,20 +1,26 @@
 # Wormwood
 
-Wormwood is an event-driven file rendering utility inspired by [Jekyll](https://github.com/mojombo/jekyll).
+Wormwood is an event-driven template rendering utility inspired by [Jekyll](https://github.com/mojombo/jekyll). It's great for rendering markdown, e.g., a README file, as you edit.
 
-Wormwood:
+Wormwood will:
 
-1. watches for changes to a template directory ( _./_ by default)
-2. renders the changed files (via [Tilt](https://github.com/rtomayko/tilt))
-3. writes the rendered output to an output directory ( _./_ by default).
+1. watch for changes to a template directory ( _./_ by default)
+1. render the changed files (via [Tilt](https://github.com/rtomayko/tilt)) into a layout
+1. write the rendered, laid-out content to an output directory ( _./_ by default).
+
+
+## Installation
+
+    $ gem install wormwood
+
 
 ## Usage
 
-1. Create a file [Tilt](https://github.com/rtomayko/tilt) knows how to render, e.g., _foo.erb_
-2. Create a file named "layout" in the same directory, with a Tilt-supported extension, e.g., _layout.erb_
-3. Reference _content_ in the layout, e.g., `<%= content %>`
-4. Run `wormwood`
-5. Edit _foo.erb_ and observe changes applied to _foo.html_
+1. Create a file [Tilt](https://github.com/rtomayko/tilt) knows how to render, e.g., _foo.md_
+1. Run `wormwood`
+1. Edit _foo.md_ and observe the creation of _foo.html_
+
+**Note:** Wormwood will generate a file called _&lt;layout name>.erb_ in your source directory if a file named "layout" doesn't already exist. Feel free to hack it.
 
 
 ## Configuration
@@ -30,29 +36,22 @@ Wormwood defines a few configuration options:
 `--variable` The name of the variable used to insert rendered content into the layout. Defaults to "content".
 
 
-## Installation
+## Developing
 
-Add this line to your application's Gemfile:
-
-    gem 'wormwood'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install wormwood
+1. Develop
+1. Build gem `rake build`
+1. Install gem `rake install`
+1. Run tests `rake test`
 
 
 ## Changelog
 
+0.0.7 generates default layout
 0.0.6 adds layout support
 
-## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+## License
+
+Copyright 2013 Erik Eldridge
+
+Licensed under the MIT License
