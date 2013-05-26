@@ -46,8 +46,8 @@ Wormwood defines a few configuration options:
 
 ## Changelog
 
-0.0.7 generates default layout
-0.0.6 adds layout support
+* 0.0.7 generates default layout
+* 0.0.6 adds layout support
 
 
 ## License
